@@ -1,0 +1,19 @@
+{
+  "name": "jonwinsley-com",
+  "version": "1.0.0",
+  "description": "Personal site with 11ty",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glitchassassin/jonwinsley-com.git"
+  },
+  "author": "Jon Winsley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glitchassassin/jonwinsley-com/issues"
+  },
+  "homepage": "https://github.com/glitchassassin/jonwinsley-com#readme"
+}
