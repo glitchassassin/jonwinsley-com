@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ site.title }} | {{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <ul>
+            {% for ref in collections.headerNav %}
+                <li><a href="{{ref.url}}"{% if page.url == ref.url %} class="active" {% endif %}>{{ref.data.title}}</a></li>
+            {% endfor %}
+            </ul>
+        </header>
+        {{ content }}
+    </body>
+</html>
