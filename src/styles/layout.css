@@ -1,0 +1,24 @@
+/* Header */
+
+header.site-header {
+    width: 100%;
+}
+header.site-header ul {
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+header.site-header ul li {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+}
+header.site-header li a {
+    display: inline-block;
+    width: 200px;
+    line-height: 50px;
+    text-align: center;
+}

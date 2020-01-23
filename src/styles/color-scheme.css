@@ -1,0 +1,13 @@
+body {
+    background-color: hsl(0, 0%, 7%);
+    color: rgba(255, 255, 255, 0.60);
+}
+
+header.site-header {
+    background-color: hsl(0, 0%, 10%);
+}
+
+header.site-header a, header.site-header a:visited {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.87);
+}

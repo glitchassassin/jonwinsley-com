@@ -3,9 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>{{ site.title }} | {{ title }}</title>
+        <link rel="stylesheet" type="text/css" href="styles/resets.css" />
+        <link rel="stylesheet" type="text/css" href="styles/layout.css" />
+        <link rel="stylesheet" type="text/css" href="styles/color-scheme.css" />
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <ul>
             {% for ref in collections.headerNav %}
                 <li><a href="{{ref.url}}"{% if page.url == ref.url %} class="active" {% endif %}>{{ref.data.title}}</a></li>

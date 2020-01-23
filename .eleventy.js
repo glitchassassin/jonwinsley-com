@@ -1,7 +1,8 @@
 module.exports = eleventyConfig => {
 
-    // // Pass through static assets
+    // Pass through static assets
     eleventyConfig.addPassthroughCopy('src/assets');
+    eleventyConfig.addPassthroughCopy('src/styles');
 
     return {
         // Input directory
