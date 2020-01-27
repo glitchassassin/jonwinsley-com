@@ -24,7 +24,7 @@ To run the script, you first create an "app" in Dropbox's App Console. That giv
 
 It worked pretty well as is. Due to a bug in the Dropbox module, I had to add a shebang to run it with Python 2 instead of 3 (which was my default):
 
-```
+```python
 #!python2
 # See: 
 # http://www.devwithimagination.com/2014/05/11/pythonista-dropbox-sync

@@ -26,13 +26,13 @@ So, I decided to build it.
 
 Existing Sikuli scripts can be run with minimal modification just by importing the Sikuli shim at the top of the script:
 
-```
+```python
 from sikuli import *
 ```
 
 Since Sikuli script overrides some Python native functions (like `input()`), you can also just import Lackey and call the automation functions directly:
 
-```
+```python
 import lackey
 
 # Sets r to the region of the default screen

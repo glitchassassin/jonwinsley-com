@@ -17,6 +17,7 @@ tags:
 communication between the users, developers, and QA team. You might not even realize
 at a glance that you're looking at code. To borrow an example from [the official tutorial:](https://cucumber.io/docs/guides/10-minute-tutorial/)
 
+```gherkin
     Feature: Is it Friday yet?
       Everybody wants to know when it's Friday
     
@@ -24,6 +25,7 @@ at a glance that you're looking at code. To borrow an example from [the official
         Given today is Sunday
         When I ask whether it's Friday yet
         Then I should be told "Nope"
+```
 
 This puts the emphasis on sitting down with the users and developers ahead of time,
 and enshrines the goals and requirements for the system in a common language. Both
@@ -39,7 +41,8 @@ Cucumber scripts can be written with a handful of different languages, including
 that runs on Node.js. It provides a non-WebDriver-dependent solution for automating web
 applications and making assertions about application state. The syntax is very slick and
 easy to dive right into (again, borrowing from [the official readme](https://github.com/DevExpress/testcafe#getting-started)):
- 
+
+```javascript
     import { Selector } from 'testcafe'; // first import testcafe selectors
     
     fixture `Getting Started`// declare the fixture
@@ -55,7 +58,8 @@ easy to dive right into (again, borrowing from [the official readme](https://git
             // Use the assertion to check if the actual header text is equal to the expected one
             .expect(Selector('#article-header').innerText).eql('Thank you, John Smith!');
     });
- 
+```
+
 The power of TestCafe and the readability of Cucumber's Gherkin syntax make these two
 packages a natural match. How difficult is it to combine the two? Not very, as it turns
 out; most of the work has [already been done](https://github.com/rquellh/testcafe-cucumber) for us. 
@@ -78,6 +82,7 @@ rquellh's solution stands up a TestCafe controller with the `Before` hook, which
 guess) runs before each Cucumber test. It generates a dummy file, `test.js`, which TestCafe 
 reads as the source of the tests.
 
+```javascript
     Before(function() {
         runTest(n, this.setBrowser());
         createTestFile();
@@ -86,6 +91,7 @@ reads as the source of the tests.
             return testController.maximizeWindow();
         });
     });
+```
 [\[src\]](https://github.com/rquellh/testcafe-cucumber/blob/master/features/support/hooks.js#L45)
 
 The `test.js` file reads as a TestCafe test file, complete with fixtures, but rather than
@@ -94,10 +100,12 @@ once it's set up. The waitForTestController promise object waits for TestCafe to
 up the controller asynchronously, then adds it to [Cucumber's world scope](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md) 
 as `testController`. The `Before` hook also maximizes the test controller window, once it's ready.
 
+```javascript
     this.waitForTestController = testControllerHolder.get()
             .then(function(tc) {
                 return testController = tc;
             });
+```
 [\[src\]](https://github.com/rquellh/testcafe-cucumber/blob/master/features/support/world.js#L7)
 
 **Note:** The testController declaration isn't directly attached to the World object; it's just 
@@ -109,6 +117,7 @@ similarly-named global variables.
 
 Let's take a step back and look more closely at the TestCafe setup. What's going on here?
 
+```javascript
      function runTest(iteration, browser) {
          createTestCafe('localhost', 1338 + iteration, 1339 + iteration)
              .then(function(tc) {
@@ -126,6 +135,7 @@ Let's take a step back and look more closely at the TestCafe setup. What's going
              .then(function(report) {
              });
      }
+```
 [\[src\]](https://github.com/rquellh/testcafe-cucumber/blob/master/features/support/hooks.js#L24)
 
 First off, note the `iteration` variable. This is designed to ensure tests execute correctly,
@@ -140,6 +150,7 @@ be reporting through Cucumber instead.)
 
 The test file is similarly straightforward:
 
+```javascript
     function createTestFile() {
         fs.writeFileSync('test.js',
             'import errorHandling from "./features/support/errorHandling.js";\n' +
@@ -150,6 +161,7 @@ The test file is similarly straightforward:
             'test\n' +
             '("test", testControllerHolder.capture)')
     }
+```
 [\[src\]](https://github.com/rquellh/testcafe-cucumber/blob/master/features/support/hooks.js#L13)
 
 It sets up a simple TestCafe fixture, where the only "test" is calling the testControllerHolder
@@ -167,6 +179,7 @@ your step definitions, you can import `Selector` from TestCafe to target element
 Because the TestCafe test controller uses asynchronous calls, you'll need to specify that your
 step functions are async. Then just start writing with TestCafe:
 
+```javascript
     const {Given, When, Then} = require('cucumber');
     const Selector = require('testcafe').Selector;
     
@@ -188,6 +201,7 @@ step functions are async. Then just start writing with TestCafe:
         var firstLink = Selector('#rso').find('a').with({boundTestRun: testController});
         await testController.expect(firstLink.innerText).contains(text);
     });
+```
 [\[src\]](https://github.com/rquellh/testcafe-cucumber/blob/master/features/step_definitions/google.js#L1)
 
 I've found that, in many cases, Selector will just work without the `with` context: the
@@ -195,15 +209,18 @@ testController is smart enough to figure out what you mean for the purposes of c
 typing on an element. For assertions, however, the `.with({boundTestRun: testController})`
 binding is inescapable, and TestCafe will throw an error like the following:
 
+```text
     Selector cannot implicitly resolve the test run in context of which it should be executed. 
     If you need to call Selector from the Node.js API callback, pass the test controller 
     manually via Selector's `.with({ boundTestRun: testController })` method first. Note that 
     you cannot execute Selector outside the test code.
+```
 
 As a workaround, you can create a wrapper for Selector that does this automatically. Because
 testController is a global variable, we can access it from here without additional work. I
 saved this to `features/support/selector.js`:
 
+```javascript
     const { Selector } = require('testcafe');
     
     function select(selector) {
@@ -211,13 +228,17 @@ saved this to `features/support/selector.js`:
     }
     
     exports.Selector = select
+```
 
 Then you can import the wrapped Selector into your step definitions:
 
+```javascript
     const { Selector } = require('../support/selector');
+```
 
 Voila! Now we can get rid of the extra `with()` clutter in the example above.
 
+```javascript
     const {Given, When, Then} = require('cucumber');
     const { Selector } = require('../support/selector');
     
@@ -230,6 +251,7 @@ Voila! Now we can get rid of the extra `with()` clutter in the example above.
     });
     
     [...]
+```
 
 What issues have you run into with integrating Cucumber and TestCafe? Let me know 
 [on Twitter!](https://twitter.com/jonwinsley)

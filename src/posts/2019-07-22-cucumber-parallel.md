@@ -21,7 +21,7 @@ Cucumber has the ability to run tests in parallel, in theory, but since I'm mixi
 
 The first barrier we immediately run into is port allocation for TestCafe in each of the slave instances. You may recall how we initialized the test controller:
 
-
+```javascript
      function runTest(iteration, browser) {
          createTestCafe('localhost', 1338 + iteration, 1339 + iteration)
              .then(function(tc) {
@@ -39,6 +39,7 @@ The first barrier we immediately run into is port allocation for TestCafe in eac
              .then(function(report) {
              });
      }
+```
 
 Those iterations, of course, are per-process. That means each slave process is starting at the same port. So we need some other way to avoid conflicts. Luckily, Node makes it easy: if you don't specify a port number, you'll be assigned a random available port! Since we don't need to address this port again, we don't particularly care what it is, so we can remove those ports altogether.
 
@@ -46,7 +47,9 @@ However, the `test.js` file we write to hook the TestCafe test controller is ano
 
 It's safest to have a separate file per process. Cucumber provides an environment variable CUCUMBER_SLAVE_ID that identifies each process, so we can just prepend that to `_test.js` for a process-unique filename:
 
+```javascript
     .src(`./${process.env.CUCUMBER_SLAVE_ID}_test.js`)
+```
 
 Repeat the change for any other references to `test.js`, of course.
 
@@ -56,18 +59,22 @@ After getting tests to run in parallel, I still had some kinks to work out. For 
 
 The timeout was being thrown by TestCafe, so we just need to specify a different timeout in the run method above:
 
+```javascript
     .run({
         selectorTimeout: 30*1000, // 30 seconds
         assertionTimeout: 30*1000
     })
+```
 
 You'll also need to check the Cucumber global timeout value, defined in hooks.js:
 
+```javascript
     const {AfterAll, setDefaultTimeout, Before, After, Status} = require('cucumber');
     const errorHandling = require('../support/errorHandling');
     const TIMEOUT = 30*1000;
     [...]
     setDefaultTimeout(TIMEOUT);
+```
 
 ## Remaining Instability
 
@@ -75,6 +82,7 @@ After all this work, I'm still seeing crashes occasionally from TestCafe if I tr
 
 In the second case, I get an error message like the following:
 
+```text
     [Error: EBUSY: resource busy or locked, unlink 'C:\Users\jwinsl01\AppData\Local\Temp\1\testcafe\chrome-profile-8208bnrVaCerIQZV\Safe Browsing Cookies'] {
       errno: -4082,
       code: 'EBUSY',
@@ -82,6 +90,7 @@ In the second case, I get an error message like the following:
       path: 'C:\\Users\\jwinsl01\\AppData\\Local\\Temp\\1\\testcafe\\chrome-profile-8208bnrVaCerIQZV\\Safe ' +
         'Browsing Cookies'
     }
+```
 
 It looks like TestCafe is having trouble cleaning up its temporary Chrome profile, but these temporary profiles are generated with a random string, so they should be unique to each feature. 
 
@@ -91,12 +100,14 @@ I haven't yet been able to identify a reason for these errors, but when they do 
 
 Cucumber.js lets us dump failed tests to a `@rerun.txt` file, so we can quickly re-run those tests that failed in parallel. For the sake of making sure they actually work this time, I've set my package.json actions up to re-run these tests sequentially:
 
+```json
      "scripts": {
          "cucumber": "del reports\\*.json && cucumber-js -f rerun:@rerun.txt -f progress-bar -f json:reports/cucumber_report.json --parallel=5",
          "cucumber:rerun": "cucumber-js @rerun.txt -f progress-bar -f json:reports/cucumber_report_rerun.json",
          "report": "node report.js",
          "test": "npm-run-all -c cucumber cucumber:rerun report"
        },
+```
 
 The rerun option is just a custom formatter that outputs the file & line number of failed scenarios to `@rerun.txt`. Cucumber then reads that file (the `@` at the start is important) and launches just those specific scenarios.
 

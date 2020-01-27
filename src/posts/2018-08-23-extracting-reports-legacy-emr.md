@@ -45,7 +45,7 @@ From there, it was a matter of trial and error, working through the other invisi
 
 In order to represent this in Python, I just set up a loop through the telnet data stream, modifying the screen object directly (or creating new ones) based on those control codes. Here's a sample:
 
-```
+```python
 @asyncio.coroutine
 def shell(self, reader, writer):
     screens = [Screen()]
@@ -95,7 +95,7 @@ Scripting an application is typically best described in terms of responses to th
 
 I went through a couple iterations before settling on a design pattern that looks like this:
 
-```
+```python
 class States(object):
     # Setup
     def __init__(self):
@@ -157,7 +157,7 @@ The application only supported two kinds of network printers: LPD (Line Printer 
 
 Python (like most programming languages) has some socket support built-in, and with some tinkering, it turned out to be pretty easy to set up a raw socket server using the `socketserver` module:
 
-```
+```python
 import socketserver
 import tempfile
 import os
@@ -200,7 +200,7 @@ That's the easy part: the hard part is that this is completely separate from the
 
 Back in the state machine, we have a step to wait for this file to be generated, our longest one yet. Because we aren't waiting for a particular screen state, this step just loops indefinitely until the file appears. Then, it attempts to move the file, and repeats in case of failure (if, for example, the print server hasn't finished writing it yet).
 
-```
+```python
 def wait_for_printed_file(self, screen, writer):
     # Wait for the PDF to generate (this step will block until complete)
     while True:

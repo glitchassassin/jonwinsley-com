@@ -131,3 +131,12 @@ section.post-section main pre {
     padding: 25px;
     max-height: 30em;
 }
+section.post-section main p code {
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0 5px;
+    /*border: 1px rgba(255, 255, 255, 0.3) solid;*/
+}
+section.post-section main img {
+    opacity: 80%;
+}
