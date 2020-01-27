@@ -1,3 +1,13 @@
+/* General */
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+    font-size: 32pt;
+}
+
 /* Header */
 
 header.site-header {
@@ -14,11 +24,57 @@ header.site-header ul {
 header.site-header ul li {
     display: inline-block;
     width: 200px;
-    height: 50px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 20pt;
 }
 header.site-header li a {
     display: inline-block;
     width: 200px;
-    line-height: 50px;
     text-align: center;
+}
+
+/* Posts Index */
+
+.post-card-container {
+    display: flex;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+article.post-card {
+    position: relative;
+    width: 30vw;
+    max-width: 300px;
+    height: 28vw;
+    max-height: 280px;
+    margin-bottom: 2vw;
+    display: inline-block;
+    text-align: center;
+    font-size: 20pt;
+}
+
+.post-card-caption {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-evenly;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+.post-card-title {
+    line-height: 30px;;
+}
+
+.post-card-date {
+    font-size: 12pt;
 }

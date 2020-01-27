@@ -3,16 +3,22 @@ layout: "wrapper.liquid"
 ---
 
 <h1>{{ title }}</h1>
-
-{% for post in collections.posts %}    
-<a href="{{ post.url }}">
-    <article>
-        {% if post.data.image %}
-        <img alt="{{post.data.title}}" src="{{post.data.image}}" />
-        {% endif %}
-        <caption>
-            {{ post.data.title }}
-        </caption>
-    </article>
-</a>
-{% endfor %}
+<div class="post-card-container">
+    {% for post in collections.posts %}
+    <a href="{{ post.url }}">
+        <article class="post-card elevation1">
+            {% if post.data.image %}
+            <img alt="{{post.data.title}}" src="{{post.data.image}}" />
+            {% endif %}
+            <span class="post-card-caption">
+                <div class="post-card-title">
+                    {{ post.data.title }}
+                </div>
+                <div class="post-card-date">
+                {{ post.data.date | toUTCString }}
+                </div>
+            </span>
+        </article>
+    </a>
+    {% endfor %}
+</div>

@@ -1,2 +1,2 @@
 # jonwinsley-com
-Personal site with 11ty
+Personal site with Eleventy
