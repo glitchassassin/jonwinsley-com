@@ -1,5 +1,16 @@
+/**
+ * Font Sizes
+ * h1 - 32pt
+ * h2 - 18pt
+ * Body - 14pt
+ */
+
 /* General */
 
+body {
+    font-size: 14pt;
+    font-weight: lighter;
+}
 h1 {
     text-align: center;
     margin-top: 10px;
@@ -55,7 +66,6 @@ article.post-card {
     margin-bottom: 2vw;
     display: inline-block;
     text-align: center;
-    font-size: 20pt;
 }
 
 .post-card-caption {
@@ -66,15 +76,58 @@ article.post-card {
     justify-content: space-evenly;
     bottom: 0;
     left: 0;
-    height: 100px;
     width: calc(100% - 10px);
     padding: 5px;
 }
 
 .post-card-title {
-    line-height: 30px;;
+    font-size: 18pt;
+    line-height: 30px;
 }
 
 .post-card-date {
     font-size: 12pt;
+}
+
+/* Post */
+
+section.post-section {
+    width: 80vw;
+    margin: 0 auto;
+    max-width: 1150px;
+    padding: 25px;
+    font-size: 18pt;
+}
+
+section.post-section header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+section.post-section header h1 {
+    width: 100%;
+}
+section.post-section header time {
+    font-size: 0.8em;
+}
+
+section.post-section main {
+}
+section.post-section main p {
+    width: 36em;
+    max-width: 100%;
+    text-indent: 1.5em;
+    margin: 15px auto;
+}
+section.post-section main h2 {
+    width: 21em;
+    max-width: 100%;
+    margin: 15px auto;
+}
+section.post-section main pre {
+    font-size: 0.8em;
+    margin: 0 0 15px -25px;
+    width: 100%;
+    padding: 25px;
+    max-height: 30em;
 }

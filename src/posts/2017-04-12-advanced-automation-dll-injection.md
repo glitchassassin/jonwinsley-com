@@ -31,7 +31,7 @@ But of course it couldn't be that easy: the coordinates our DrawTextA hook was s
 
 We needed the coordinates to tell where on the window each "textout" was being displayed (so we could find the coordinates we were looking for). After a bit more research, it turned out the solution was simple: we modified the injected DLL from the earlier tutorial to track the temporary DCs seen by our DrawTextA hook, and then hooked BitBlt to capture the target coordinates when those temporary DCs were copied to the screen. At that point we forwarded the text and the real coordinates to the main process:
 
-```
+```c
 // Textout hook captures the DrawText() call to render text to a bitmap.
 // Captured text is stored (indexed by dc) in the DC_List hashtable
 static bool TextOut_Hooked(
@@ -137,7 +137,7 @@ static bool BitBlt_Hooked(
 
 At this point the main process is receiving a list of strings that look something like this:
 
-```
+```text
 (100, 32, 57, 21) Invoice
 ```
 
@@ -149,7 +149,7 @@ Because we don't have a way to recognize when the screen refreshes, these textou
 
 So as to maximize the future extensibility of the tool, this configuration was recorded in an XML file:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <applications>
   <application exe="ApplicationB" id="AB">
@@ -199,7 +199,7 @@ We set up a memory-mapped file in the main process, which could be shared betwee
 
 VBScript, unfortunately, is very limited and does not support accessing memory-mapped files. It does support COM objects, however, so we created a [very minimal COM-enabled DLL](https://msdn.microsoft.com/en-us/library/c3fd4a20.aspx) for the sole purpose of interfacing with that memory-mapped file:
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.IO;
