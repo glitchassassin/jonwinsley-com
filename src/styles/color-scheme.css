@@ -4,10 +4,14 @@ body {
 }
 
 header.site-header {
-    background-color: hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 12%);
 }
 
 header.site-header a, header.site-header a:visited {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.87);
+}
+
+header.site-header a:hover {
+    background-color: hsl(0, 0%, 20%);
 }
