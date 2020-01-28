@@ -15,14 +15,19 @@ h1 {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
-    font-weight: lighter;
     font-size: 32pt;
+}
+p {
+    width: 36em;
+    max-width: 100%;
+    text-indent: 1.5em;
+    margin: 15px auto;
 }
 
 /* Header */
 
 header.site-header {
-    width: 100%;
+    width: 100vw;
 }
 header.site-header ul {
     margin: 0;
@@ -65,9 +70,7 @@ article.post-card {
     display: inline-block;
     text-align: center;
 
-    background-position: 50% 0%;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 40em) {
@@ -126,6 +129,9 @@ section.post-section header h1 {
 section.post-section header time {
     font-size: 0.8em;
 }
+section.post-section header img {
+    max-height: 50vh;
+}
 
 section.post-section main {
 }
@@ -155,4 +161,67 @@ section.post-section main p code {
 }
 section.post-section main img {
     opacity: 80%;
+}
+
+/* Front Page */
+section.front-page-section {
+    /*width: 60vw;*/
+    width: 60vw;
+    margin: 0 auto;
+    max-width: 850px;
+    padding: 25px;
+    font-size: 18pt;
+}
+section.front-page-section header {
+    padding-bottom: 10px;
+}
+section.front-page-section header img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    float: none;
+    margin: 0 auto;
+}
+@media screen and (min-width: 60em) {
+    section.front-page-section header img {
+        float: right;
+        margin-right: calc(-175px);
+    }
+}
+
+section.front-page-section footer {
+    width: 100%;
+}
+section.front-page-section footer ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+section.front-page-section footer ul li {
+    height: 50px;
+}
+section.front-page-section footer li a {
+    line-height: 50px;
+    font-size: 18pt;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+
+section.front-page-section footer ul li + li:before {
+    content: " | ";
+    padding: 0 10px;
+}
+
+section.front-page-section a, section.front-page-section a:visited {
+    text-decoration: none;
+    /*color: rgba(209, 102, 255, 0.87);*/
+    color: rgba(255, 255, 255, 0.87);
+}
+section.front-page-section a:hover, section.front-page-section a.active {
+    background-color: hsl(260, 10%, 20%);
 }

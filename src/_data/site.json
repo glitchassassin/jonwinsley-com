@@ -1,4 +1,14 @@
 {
   "title": "Jon Winsley",
-  "shortTitle": "Jon Winsley"
+  "shortTitle": "Jon Winsley",
+  "footer": [
+    {
+      "name": "GitHub",
+      "href": "https://github.com/glitchassassin"
+    },
+    {
+      "name": "Twitter",
+      "href": "https://twitter.com/jonwinsley"
+    }
+  ]
 }

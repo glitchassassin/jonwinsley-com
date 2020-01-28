@@ -5,7 +5,6 @@ author:     Jon Winsley
 comments:   true
 summary:    Extracting Reports from a Legacy EMR
 categories: automation
-image:      /assets/telnet.png
 tags:
  - automation
  - reverse engineering

@@ -49,6 +49,10 @@ h1, h2, h3, h4, h5, h6 {
 
 header.site-header {
     background-color: hsl(260, 10%, 15%);
+    background-image: url(/assets/outline.png);
+    background-position: 1% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 header.site-header a, header.site-header a:visited {
@@ -67,5 +71,11 @@ header.site-header a:hover, header.site-header a.active {
     color: rgba(255, 255, 255, 0.87);
 }
 .post-card img {
-    opacity: 80%;
+    opacity: 86%;
+}
+
+/* Post page */
+
+.post-section img {
+    opacity: 86%;
 }

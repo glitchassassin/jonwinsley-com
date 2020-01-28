@@ -5,7 +5,6 @@ author:     Jon Winsley
 comments:   true
 summary:    Syncing Pythonista with Dropbox
 categories: python
-image:      /assets/dropbox.png
 tags:
  - api
  - dropbox

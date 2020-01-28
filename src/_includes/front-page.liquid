@@ -1,0 +1,20 @@
+---
+layout: "wrapper.liquid"
+---
+<section class="front-page-section elevation1">
+    <header>
+        {% if profile %}
+        <img alt="Profile photo" src="{{profile}}" />
+        {% endif %}
+    </header>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        <ul>
+        {% for item in site.footer %}
+        <li><a href="{{ item.href }}">{{ item.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </footer>
+</section>

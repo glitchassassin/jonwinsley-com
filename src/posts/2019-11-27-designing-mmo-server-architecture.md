@@ -5,7 +5,6 @@ author:     Jon Winsley
 comments:   true
 summary:    MMOs have different server requirements than other multiplayer games. Let's talk strategy.
 categories: gamedev
-image:      /assets/connection-server-architecture.png
 tags:
  - game development
  - software design
