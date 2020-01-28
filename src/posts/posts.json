@@ -1,4 +1,5 @@
 {
   "layout": "posts.liquid",
-  "tags": ["posts"]
+  "tags": ["posts"],
+  "image": "/assets/lackey.png"
 }

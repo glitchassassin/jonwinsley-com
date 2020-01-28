@@ -5,11 +5,8 @@ layout: "wrapper.liquid"
 <h1>{{ title }}</h1>
 <div class="post-card-container">
     {% for post in collections.posts %}
-    <a href="{{ post.url }}">
-        <article class="post-card elevation1">
-            {% if post.data.image %}
-            <img alt="{{post.data.title}}" src="{{post.data.image}}" />
-            {% endif %}
+        <article class="post-card elevation1" style="background-image: url({{post.data.image}})">
+            <a href="{{ post.url }}">
             <span class="post-card-caption elevation3">
                 <div class="post-card-title">
                     {{ post.data.title }}
@@ -18,7 +15,7 @@ layout: "wrapper.liquid"
                 {{ post.data.date | toUTCString }}
                 </div>
             </span>
+            </a>
         </article>
-    </a>
     {% endfor %}
 </div>
