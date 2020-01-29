@@ -10,7 +10,7 @@ tags: ["headerNav"]
 
 Hi! I'm Jon Winsley. I am a software engineer.
 
-Writing code is to software engineering what writing a sentence is to publishing a book. You can't write a book without sentences, but sentences aren't enough: You also need to know your subject and your audience.
+Writing code is to software engineering what writing a sentence is to publishing a book. You can't write a book without language, but language isn't enough: You also need to know your subject and your audience. Here's my professional philosophy.
 
 ## Know Your Subject
 
@@ -24,3 +24,8 @@ Your audience is (most likely) human, with all the quirks and foibles that go al
 
 And humans diverge from the baseline: we have a duty to accommodate disabilities and device limitations, **lifting others up rather than shutting them out.**
 
+## Know Your Language
+
+Programming languages and frameworks are a dime a dozen. **The true language of software engineering is systems and design patterns.** Fitting a new framework into your mental model is trivial if you're already familiar with the design patterns it uses.
+
+The best way to learn is to do. Experiment, change things, and see how the pattern reacts. Then, explain it to someone else - and if you can't, you're not done learning!
