@@ -9,7 +9,3 @@ tags: ["headerNav"]
 # Hi! I'm Jon Winsley.
 
 # I build software.
-
-* [Portfolio](/portfolio)
-* [Blog](/posts)
-* [CV](/cv)

@@ -1,3 +1,5 @@
+@import 'includes/prism-atom-dark';
+
 /* Defaults */
 body {
     /*background-color: hsl(0, 0%, 7%);*/
@@ -26,7 +28,11 @@ body {
 }
 
 a, a:visited {
-    color: rgba(255, 255, 255, 0.60);
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,48 +40,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .elevation1 {
-    background-color: hsl(260, 10%, 10%);
+    background-color: hsla(260, 10%, 10%, 0.7);
 }
 
 .elevation2 {
-    background-color: hsl(260, 10%, 15%);
+    background-color: hsla(260, 10%, 15%, 0.7);
 }
 
 .elevation3 {
-    background-color: hsl(260, 10%, 20%);
-}
-
-/* Header */
-
-header.site-header {
-    background-color: hsl(260, 10%, 15%);
-    background-image: url(/assets/outline.png);
-    background-position: 1% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-header.site-header a, header.site-header a:visited {
-    text-decoration: none;
-    /*color: rgba(209, 102, 255, 0.87);*/
-    color: rgba(255, 255, 255, 0.87);
-}
-
-header.site-header a:hover, header.site-header a.active {
-    background-color: hsl(260, 10%, 20%);
-}
-
-/* Posts */
-
-.post-card-title {
-    color: rgba(255, 255, 255, 0.87);
-}
-.post-card img {
-    opacity: 86%;
-}
-
-/* Post page */
-
-.post-section img {
-    opacity: 86%;
+    background-color: hsla(260, 10%, 20%, 0.7);
 }

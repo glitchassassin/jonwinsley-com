@@ -1,0 +1,25 @@
+/**
+ * Font Sizes
+ * h1 - 32pt
+ * h2 - 18pt
+ * Body - 14pt
+ */
+
+/* General */
+
+body {
+    font-size: 14pt;
+    font-weight: lighter;
+}
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 32pt;
+}
+p {
+    width: 36em;
+    max-width: 100%;
+    text-indent: 1.5em;
+    margin: 15px auto;
+}

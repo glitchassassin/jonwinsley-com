@@ -1,0 +1,51 @@
+/* Posts Index */
+
+.post-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.post-card {
+    height: 200px;
+    flex: 0 1 calc(80% - 1em);
+    position: relative;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: center;
+
+    overflow: hidden;
+
+    img {
+        opacity: 86%;
+        height: 200px;
+    }
+}
+
+.post-card-caption {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+.post-card-title {
+    font-size: 18pt;
+    line-height: 60px;
+    margin-left: 10%;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.post-card-date {
+    font-size: 12pt;
+}

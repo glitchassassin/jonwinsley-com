@@ -4,7 +4,8 @@ layout: "wrapper.liquid"
 
 <h1>{{ title }}</h1>
 <div class="post-card-container">
-    {% for post in collections.posts %}
+    {% assign posts = collections.posts | reverse %}
+    {% for post in posts %}
         <article class="post-card elevation1">
             <a href="{{ post.url }}">
             {% if post.data.image %}

@@ -5,6 +5,7 @@ author:     Jon Winsley
 comments:   true
 summary:    I built a Python library for desktop automation with fuzzy image matching.
 categories: automation python
+image:      /assets/lackey.png
 tags:
  - automation
  - lackey
