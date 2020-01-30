@@ -163,8 +163,8 @@ section.post-section main img {
     opacity: 80%;
 }
 
-/* Front Page */
-section.front-page-section {
+/* About Page */
+section.page-about {
     /*width: 60vw;*/
     width: 60vw;
     margin: 0 auto;
@@ -172,10 +172,10 @@ section.front-page-section {
     padding: 25px;
     font-size: 18pt;
 }
-section.front-page-section header {
+section.page-about header {
     padding-bottom: 10px;
 }
-section.front-page-section header img {
+section.page-about header img {
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -183,16 +183,16 @@ section.front-page-section header img {
     margin: 0 auto;
 }
 @media screen and (min-width: 60em) {
-    section.front-page-section header img {
+    section.page-about header img {
         float: right;
         margin-right: calc(-175px);
     }
 }
 
-section.front-page-section footer {
+section.page-about footer {
     width: 100%;
 }
-section.front-page-section footer ul {
+section.page-about footer ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -201,10 +201,10 @@ section.front-page-section footer ul {
     flex-wrap: nowrap;
     justify-content: center;
 }
-section.front-page-section footer ul li {
+section.page-about footer ul li {
     height: 50px;
 }
-section.front-page-section footer li a {
+section.page-about footer li a {
     line-height: 50px;
     font-size: 18pt;
     display: inline-block;
@@ -212,16 +212,62 @@ section.front-page-section footer li a {
     text-align: center;
 }
 
-section.front-page-section footer ul li + li:before {
+section.page-about footer ul li + li:before {
     content: " | ";
     padding: 0 10px;
 }
 
-section.front-page-section a, section.front-page-section a:visited {
+section.page-about a, section.page-about a:visited {
     text-decoration: none;
     /*color: rgba(209, 102, 255, 0.87);*/
     color: rgba(255, 255, 255, 0.87);
 }
-section.front-page-section a:hover, section.front-page-section a.active {
+section.page-about a:hover, section.page-about a.active {
     background-color: hsl(260, 10%, 20%);
+}
+
+
+/* Front Page */
+section.page-front {
+    height: calc(100vh - 75px);
+}
+section.page-front main {
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+section.page-front main h1 {
+    width: 100%;
+    font-size: 8vw;
+    font-weight: bold;
+}
+section.page-front main ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+section.page-front main ul li {
+    height: 50px;
+}
+section.page-front main li a {
+    line-height: 50px;
+    font-size: 18pt;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    padding: 0px 10px;
+    margin: 10px;
+    text-decoration: none;
+    
+    border: 1px solid;
+    background-color: rgba(255, 255, 255, 0.1)
+}
+section.page-front main li a:hover {
+    background-color: rgba(255, 255, 255, 0.2)
 }
