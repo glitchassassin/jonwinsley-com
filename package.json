@@ -4,8 +4,8 @@
   "description": "Personal site with 11ty",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve"
+    "build": "browserify src/main.js > _site/bundle.js && eleventy",
+    "start": "browserify src/main.js > _site/bundle.js && eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,10 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "browserify": "^16.5.0",
     "eleventy-plugin-sass": "^1.0.0"
+  },
+  "dependencies": {
+    "canvas-particle-network": "^1.5.0"
   }
 }
