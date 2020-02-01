@@ -5,22 +5,20 @@
     margin: 0 auto;
     max-width: 850px;
     padding: 25px;
-    font-size: 18pt;
 }
 
 .page-about header {
     padding-bottom: 10px;
 
     img {
-        width: 300px;
-        height: 300px;
+        width: 200px;
         border-radius: 50%;
         float: none;
         margin: 0 auto;
 
         @media screen and (min-width: 60em) {
-            float: right;
-            margin-right: calc(-175px);
+            float: left;
+            margin-left: calc(-125px);
         }
     }
 }
@@ -33,7 +31,7 @@
         margin: 15px auto;
     }
     h2 {
-        width: 21em;
+        // width: 21em;
         max-width: 100%;
         margin: 15px auto;
     }
