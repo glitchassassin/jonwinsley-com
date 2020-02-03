@@ -11,6 +11,7 @@ section.post-section header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 1.8em;
 
     h1 {
         width: 100%;
@@ -20,6 +21,7 @@ section.post-section header {
     }
     img {
         max-height: 50vh;
+        opacity: 80%;
     }
 }
 

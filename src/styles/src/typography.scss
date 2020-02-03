@@ -1,11 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Lora|Roboto+Slab|Rokkitt&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400&display=swap');
+
 
 body {
-    font-family: 'Rokkitt', serif;
-    // font-family: 'Lora', serif;
-    // font-family: 'Roboto Slab', serif;
-    font-size: 18pt;
+    font-family: 'Raleway', serif;
+    font-size: 16pt;
+    font-weight: 200;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-weight: lighter;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.4em;
+}
+h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+h4 {
+    font-weight: 400;
 }

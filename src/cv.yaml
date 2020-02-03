@@ -1,0 +1,118 @@
+sidebar:
+    about: False # set to False or comment line if you want to remove the "how to use?" in the sidebar
+    education: True # set to False if you want education in main section instead of in sidebar
+
+    # Profile information
+    name: Jon Winsley
+    tagline: Software Engineer
+    avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+
+    # Sidebar links
+    email: jon.winsley@gmail.com
+    phone: +1 (740) 261-6566
+    website: jonwinsley.com #do not add http://
+    linkedin: jon-winsley
+    github: glitchassassin
+    gitlab:
+    bitbucket:
+    twitter: '@jonwinsley'
+    stack-overflow: # Number/Username, e.g. 123456/alandoe
+    codewars: glitchassassin
+    goodreads: # Number-Username, e.g. 123456-alandoe
+
+career-profile:
+    title: Career Profile
+    summary: |
+      I've been interested in computer security since I was young and first
+      discovering what I could do with computer programming. I've never lost
+      that passion, working to expand my security skillset in my free time while
+      I gained a broad base of development, general IT, and healthcare knowledge
+      in various related positions. 
+education:
+    - degree: (Cert) CompTIA Security+
+      university: CompTIA
+      time: 2019
+      
+    - degree: (Cert) ITIL Foundation
+      university: AXELOS
+      time: 2017
+      
+    - degree: B.S. in Computer Science
+      university: Franklin University
+      time: 2015
+
+    - degree: A.A.S in Electrical/Electronics Engineering Technology
+      university: Zane State College
+      time: 2008
+    
+
+experiences:
+    - role: IT Specialist
+      time: 2019 - Present
+      company: Bureau of the Fiscal Service
+      details: |
+        Working with customers to design and build business applications
+        with Java/Spring, Javascript/Angular, and other software architectures.
+        Researching and demoing tools such as Cucumber to support initiatives
+        improving development practices.
+    - role: Interface Analyst
+      time: 2017 - 2019
+      company: Marietta Memorial Hospital
+      details: |
+        Successfully coordinated 3 significant EHR updates. 
+        Saved $260k annually by migrating data from old EHRs. 
+        Saved 400+ man-hours using scripting tools.
+        Increased visibility of system health by developing 
+        dashboards to monitor critical services. 
+        Developed and tested custom interface code in 
+        object-oriented Python and C# to meet application requirements. 
+    - role: Applications Analyst
+      time: 2015 - 2017
+      company: Marietta Memorial Hospital
+      details: |
+        Provided application support for Finance, Materials, & HR departments.
+        Doubled usage of underutilized OnBase software by demoing it to other departments.
+    - role: Technical Projects Manager
+      time: 2008 - 2015
+      company: Howe Insurance Services
+      details: |
+        Developed & maintained PHP/MySQL-based web applications. 
+        Performed comprehensive appsec code review of an in-house contact management system.
+        Managed technical and development projects.
+projects:
+    title: Projects
+
+    assignments:
+      - title: GitHub profile
+        link: "https://github.com/glitchassassin"
+        tagline: "Open source projects I created or contribute to, including Lackey (desktop automation with Python)."
+
+      - title: Hack the Box
+        link: "https://www.hackthebox.eu/home/users/profile/46033"
+        tagline: "Pentesting boxes I’ve cracked, to demonstrate skill & learn new techniques."
+
+      - title: glitchassassin blog
+        link: "https://www.jonwinsley.com"
+        tagline: "In which I document interesting reverse engineering or development conundrums I have encountered."
+
+skills:
+    title: Skills &amp; Proficiency
+
+    toolset:
+      - name: Javascript
+        level: 85%
+
+      - name: Python
+        level: 80%
+
+      - name: Automation
+        level: 75%
+
+      - name: Web app security
+        level: 67%
+
+      - name: Penetration testing
+        level: 50%
+
+      - name: Project management
+        level: 80%

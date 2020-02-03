@@ -11,7 +11,7 @@ module.exports = eleventyConfig => {
 
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(sassPlugin, {
-        watch: ['src/styles/index.scss']
+        watch: ['src/styles/**/*.scss']
     });
 
     eleventyConfig.addLiquidFilter("toUTCString", (value) => (
